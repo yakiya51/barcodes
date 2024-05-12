@@ -29,8 +29,9 @@ export function BarcodeCreationForm() {
       <input
         required
         placeholder="Barcode text..."
-        pattern="[\x00-\x7F]*"
+        pattern="[\x00-\x7F]*" // Only ASCII chars
         type="text"
+        maxLength={300}
         value={inputValue}
         onChange={(e) => setInputValue(e.target?.value)}
         className="px-2.5 w-full rounded-lg h-8 border text-sm shadow-sm"
