@@ -6,12 +6,11 @@ import { cn } from "../lib/utils";
 
 export function BarcodeCard({ barcode }: { barcode: Barcode }) {
   const [isHovering, setIsHovering] = useState(false);
-
   const { remove } = useBarcodeState();
 
   return (
     <div
-      className="px-6 py-8 relative"
+      className="px-6 py-16 relative"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
@@ -25,11 +24,11 @@ export function BarcodeCard({ barcode }: { barcode: Barcode }) {
         <XIcon size={12} className="text-red-700" />
       </button>
 
-      <div className="flex items-center justify-center mb-2">
+      <div className="flex items-center justify-center mb-4">
         <BarcodeComponent barcode={barcode} />
       </div>
       <div className="text-center">
-        <p className="text-neutral-500 truncate text-xs">{barcode.value}</p>
+        <p className="text-neutral-600 truncate text-sm">{barcode.value}</p>
       </div>
     </div>
   );
