@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react";
 import { useBarcodeState, BarcodeKind } from "../stores";
 import { nanoid } from "nanoid";
-import { BarcodeIcon, Plus, QrCodeIcon } from "lucide-react";
+import { BarcodeIcon, CornerDownLeft, QrCodeIcon } from "lucide-react";
 import { cn } from "../lib/utils";
 
 export function BarcodeCreationForm() {
@@ -23,12 +23,12 @@ export function BarcodeCreationForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full px-6 justify-center border rounded-2xl  h-20 mx-auto flex gap-x-2  items-center"
+      className="w-full px-5 justify-center border rounded-2xl  h-20 mx-auto flex gap-x-2  items-center"
     >
       <BarcodeKindSelector value={barcodeKind} setValue={setBarcodeKind} />
       <input
         required
-        placeholder="Barcode text..."
+        placeholder={barcodeKind === "code128" ? "Code 128..." : "QR Code..."}
         pattern="[\x00-\x7F]*" // Only ASCII chars
         type="text"
         maxLength={300}
@@ -38,10 +38,10 @@ export function BarcodeCreationForm() {
       />
       <button
         type="submit"
-        className="border font-medium rounded-lg flex justify-center items-center gap-x-1 bg-black px-2.5 h-8 text-white text-xs"
+        className="border font-medium rounded-lg flex justify-center items-center gap-x-1 bg-black px-2.5 h-8 text-white text-xs hover:bg-neutral-700"
         onClick={() => {}}
       >
-        <Plus size={12} /> Create
+        <CornerDownLeft size={14} />
       </button>
     </form>
   );

@@ -14,7 +14,7 @@ export default function App() {
             <BarcodeList />
           ) : (
             <p className="text-xs text-center text-neutral-400">
-              Start by creating a barcode!
+              Create a barcode using the form above
             </p>
           )}
         </div>
