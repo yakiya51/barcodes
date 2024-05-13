@@ -19,6 +19,7 @@
     "react-dom": "^18.2.0",
     "react-jsbarcode": "^0.4.2",
     "tailwind-merge": "^2.3.0",
+    "zod": "^3.23.8",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
