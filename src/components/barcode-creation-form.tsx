@@ -66,7 +66,7 @@ function BarcodeKindSelector({
   ];
 
   return (
-    <div className="border h-9 rounded-lg flex items-center p-0.5 shadow-sm">
+    <div className="border h-9 rounded-lg flex items-center p-1 shadow-sm">
       {options.map((option) => {
         const Icon = option.icon;
         const isSelected = value === option.value;
@@ -74,7 +74,7 @@ function BarcodeKindSelector({
         return (
           <div
             className={cn(
-              "w-[36px] cursor-pointer rounded-md flex justify-center h-full items-center",
+              "w-[32px] cursor-pointer rounded-md flex justify-center h-full items-center",
               isSelected && "bg-black"
             )}
             key={option.value}
