@@ -23,7 +23,7 @@ export function BarcodeCreationForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full px-5 justify-center border rounded-2xl  h-20 mx-auto flex gap-x-2 shadow-sm items-center"
+      className="w-full px-5 justify-center border rounded-2xl h-20 mx-auto flex gap-x-3 shadow-sm items-center"
     >
       <BarcodeKindSelector value={barcodeKind} setValue={setBarcodeKind} />
       <input
@@ -34,11 +34,11 @@ export function BarcodeCreationForm() {
         maxLength={300}
         value={inputValue}
         onChange={(e) => setInputValue(e.target?.value)}
-        className="px-2.5 w-full rounded-lg h-8 border text-sm shadow-sm"
+        className="px-3 w-full rounded-lg h-9 border text-sm shadow-sm"
       />
       <button
         type="submit"
-        className="border font-medium rounded-lg flex justify-center items-center gap-x-1 bg-black px-2.5 h-8 text-white text-xs hover:bg-neutral-700"
+        className="border font-medium rounded-lg flex justify-center items-center gap-x-1 bg-black px-2.5 h-9 text-white text-xs hover:bg-neutral-700"
         onClick={() => {}}
       >
         <CornerDownLeft size={14} />
@@ -66,7 +66,7 @@ function BarcodeKindSelector({
   ];
 
   return (
-    <div className="border h-8 rounded-lg flex items-center p-0.5 shadow-sm">
+    <div className="border h-9 rounded-lg flex items-center p-0.5 shadow-sm">
       {options.map((option) => {
         const Icon = option.icon;
         const isSelected = value === option.value;
@@ -74,7 +74,7 @@ function BarcodeKindSelector({
         return (
           <div
             className={cn(
-              "w-[32px] cursor-pointer rounded-md flex justify-center h-full items-center",
+              "w-[36px] cursor-pointer rounded-md flex justify-center h-full items-center",
               isSelected && "bg-black"
             )}
             key={option.value}
@@ -88,7 +88,7 @@ function BarcodeKindSelector({
             />
             <label className="cursor-pointer" htmlFor={value}>
               <Icon
-                size={16}
+                size={18}
                 className={cn(isSelected ? "text-white" : "text-neutral-400")}
               />
             </label>

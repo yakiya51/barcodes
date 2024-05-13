@@ -7,7 +7,7 @@ export default function App() {
   const { barcodes } = useBarcodeState();
   return (
     <>
-      <main className="min-h-screen max-w-[642px] w-full px-4 mt-12 mx-auto">
+      <main className="min-h-screen max-w-[720px] w-full px-4 mt-12 mx-auto">
         <BarcodeCreationForm />
         <div className="py-8">
           {barcodes.length > 0 ? (
