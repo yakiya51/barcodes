@@ -23,7 +23,7 @@ export function BarcodeCreationForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full px-5 justify-center border rounded-2xl h-20 mx-auto flex gap-x-3 shadow-sm items-center"
+      className="w-full px-6 justify-center border rounded-2xl h-24 mx-auto flex gap-x-3 shadow-sm items-center"
     >
       <BarcodeKindSelector value={barcodeKind} setValue={setBarcodeKind} />
       <input
