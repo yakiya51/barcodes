@@ -7,7 +7,7 @@ export function BarcodeList() {
   return (
     <ul className="border rounded-2xl shadow-sm">
       {barcodes.map((barcode) => (
-        <li className="border-b last:border-b-0">
+        <li key={barcode.id} className="border-b last:border-b-0">
           <BarcodeCard barcode={barcode} />
         </li>
       ))}
