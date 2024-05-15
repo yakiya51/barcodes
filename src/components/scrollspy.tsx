@@ -6,7 +6,7 @@ export function BarcodeScrollSpy() {
   return (
     <ul className="w-full space-y-1">
       {barcodes.map((b) => (
-        <li className="w-fit w-full max-w-full overflow-x-hidden truncate text-xs text-neutral-400 hover:text-black hover:underline">
+        <li className="w-fit max-w-full overflow-x-hidden truncate text-xs text-neutral-400 hover:text-black hover:underline">
           <a href={`#${b.id}`} className="truncate">
             {b.value}
           </a>
