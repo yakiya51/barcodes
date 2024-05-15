@@ -9,20 +9,22 @@ export default function App() {
 
   return (
     <>
-      <main className="min-h-screen w-[1280px] my-10 flex mx-auto">
-        <nav className="fixed top-12 w-[280px]">
-          <BarcodeScrollSpy />
-        </nav>
-        <div className="w-[720px] mx-auto px-4">
-          <BarcodeCreationForm />
-          <div className="py-8">
-            {barcodes.length > 0 ? (
-              <BarcodeList />
-            ) : (
-              <p className="text-xs text-center text-neutral-400">
-                Create a barcode using the form above
-              </p>
-            )}
+      <main className="relative mx-auto my-10 min-h-screen w-full max-w-[720px] px-10 xl:max-w-[1280px]">
+        <div className="relative">
+          <nav className="fixed left-0 top-10 mx-10 h-full max-h-[calc(100vh-5rem)] w-0 overflow-y-auto px-4 xl:min-w-[240px]">
+            <BarcodeScrollSpy />
+          </nav>
+          <div className="mx-auto w-full max-w-[720px] xl:min-w-[720px]">
+            <BarcodeCreationForm />
+            <div className="py-8">
+              {barcodes.length > 0 ? (
+                <BarcodeList />
+              ) : (
+                <p className="text-center text-xs text-neutral-400">
+                  Create a barcode using the form above
+                </p>
+              )}
+            </div>
           </div>
         </div>
       </main>

@@ -4,9 +4,9 @@ export function BarcodeScrollSpy() {
   const { barcodes } = useBarcodeState();
 
   return (
-    <ul className="py-3 space-y-1">
+    <ul className="w-full space-y-1">
       {barcodes.map((b) => (
-        <li className="text-sm truncate overflow-x-hidden max-w-full text-neutral-400 hover:text-neutral-500 w-fit">
+        <li className="w-fit w-full max-w-full overflow-x-hidden truncate text-xs text-neutral-400 hover:text-black hover:underline">
           <a href={`#${b.id}`} className="truncate">
             {b.value}
           </a>
