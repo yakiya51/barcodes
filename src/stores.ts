@@ -26,6 +26,12 @@ export interface BarcodeState {
   barcodes: Barcode[];
   insert: (barcode: Barcode) => void;
   remove: (id: string) => void;
+
+  // highlighted barcode AKA the barcode
+  // that the user navigated to via. the
+  // scrollspy component
+  highlightedBarcodeId: string | null;
+  setHighlightedBarcodeId: (id: string | null) => void;
 }
 
 const LOCAL_STORAGE_KEY = "barcodes";
@@ -73,4 +79,10 @@ export const useBarcodeState = create<BarcodeState>()((set) => ({
         barcodes,
       };
     }),
+  highlightedBarcodeId: null,
+  setHighlightedBarcodeId: (id) => {
+    set((state) => {
+      return { ...state, highlightedBarcodeId: id };
+    });
+  },
 }));

@@ -5,7 +5,7 @@ export function BarcodeList() {
   const { barcodes } = useBarcodeState();
 
   return (
-    <ul className="border rounded-2xl shadow-sm">
+    <ul className="border rounded-2xl shadow-sm overflow-hidden">
       {barcodes.map((barcode) => (
         <li key={barcode.id} className="border-b last:border-b-0 ">
           <section id={barcode.id}>

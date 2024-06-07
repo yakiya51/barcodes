@@ -15,6 +15,6 @@ export function BarcodeComponent({ barcode }: { barcode: AnyBarcode }) {
         />
       );
     case "qrcode":
-      return <QRCodeSVG value={barcode.value} />;
+      return <QRCodeSVG value={barcode.value} className="transition-colors" />;
   }
 }

@@ -1,13 +1,24 @@
 import { useBarcodeState } from "../stores";
 
 export function BarcodeScrollSpy() {
-  const { barcodes } = useBarcodeState();
+  const { barcodes, setHighlightedBarcodeId } = useBarcodeState();
+
+  function highlightBarcodeCardById(id: string) {
+    setHighlightedBarcodeId(id);
+
+    // remove highlight after some time
+    setTimeout(() => setHighlightedBarcodeId(null), 200);
+  }
 
   return (
     <ul className="w-full space-y-1">
       {barcodes.map((b) => (
         <li className="w-fit max-w-full overflow-x-hidden truncate text-xs text-neutral-400 hover:text-black hover:underline">
-          <a href={`#${b.id}`} className="truncate">
+          <a
+            onClick={() => highlightBarcodeCardById(b.id)}
+            href={`#${b.id}`}
+            className="truncate"
+          >
             {b.value}
           </a>
         </li>
