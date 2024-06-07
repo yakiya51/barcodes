@@ -11,7 +11,10 @@ export function BarcodeCard({ barcode }: { barcode: Barcode }) {
   const isHighlighted = highlightedBarcodeId === barcode.id;
   return (
     <div
-      className={cn(" relative px-6 py-16", isHighlighted && "bg-black")}
+      className={cn(
+        "relative px-6 py-16 transition-colors",
+        isHighlighted && "bg-black",
+      )}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
@@ -31,7 +34,7 @@ export function BarcodeCard({ barcode }: { barcode: Barcode }) {
       <div className="text-center">
         <p
           className={cn(
-            "truncate text-sm text-neutral-600",
+            "truncate text-sm text-neutral-600 transition-colors",
             isHighlighted && "text-white",
           )}
         >
