@@ -9,7 +9,7 @@ export default function App() {
 
   return (
     <>
-      <main className="relative mx-auto my-10 min-h-screen w-full max-w-[720px] px-10 xl:max-w-[1280px]">
+      <main className="relative mx-auto my-10 min-h-screen w-full max-w-[720px] px-4 xl:max-w-[1280px] xl:px-10">
         <div className="relative">
           <nav className="fixed left-0 top-10 mx-10 h-full max-h-[calc(100vh-5rem)] w-0 overflow-y-auto px-4 xl:min-w-[240px]">
             <BarcodeScrollSpy />
