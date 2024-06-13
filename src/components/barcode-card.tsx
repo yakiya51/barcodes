@@ -20,7 +20,7 @@ export function BarcodeCard({ barcode }: { barcode: Barcode }) {
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      <div className="mb-4 flex justify-between">
+      <div className="mb-3 flex justify-between">
         <LabelPopover barcode={barcode} isVisible={isHovering} />
         <DeleteButton
           onClick={() => remove(barcode.id)}
@@ -31,14 +31,9 @@ export function BarcodeCard({ barcode }: { barcode: Barcode }) {
       <div className="mb-5 flex items-center justify-center">
         <BarcodeComponent barcode={barcode} />
       </div>
-      <div className="text-center text-neutral-400 ">
+      <div className="text-center text-neutral-400">
         {barcode.label && (
-          <p
-            className={cn(
-              "mb-1 text-sm font-medium",
-              isHighlighted && "text-white",
-            )}
-          >
+          <p className={cn("text-sm ", isHighlighted && "text-white")}>
             {barcode.label}
           </p>
         )}
@@ -67,7 +62,7 @@ function DeleteButton({
       onClick={onClick}
       className={cn(
         "rounded-lg border p-2 transition-opacity hover:bg-red-300/20",
-        isVisible ? "visible" : "invisible",
+        isVisible ? "opacity-100" : "opacity-0",
       )}
     >
       <XIcon size={12} className="text-red-700" />
@@ -82,12 +77,10 @@ function LabelPopover({
   barcode: Barcode;
   isVisible: boolean;
 }) {
-  if (!isVisible) return;
-
-  const { addLabel } = useBarcodeState();
-
   const [open, setOpen] = useState(false);
   const [label, setLabel] = useState(barcode.label ?? "");
+
+  const { addLabel } = useBarcodeState();
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -109,7 +102,7 @@ function LabelPopover({
       <PopoverTrigger
         className={cn(
           "flex items-center gap-x-1 rounded-lg border p-2 text-xs transition-opacity",
-          isVisible ? "visible" : "invisible",
+          isVisible || open ? "opacity-100" : "opacity-0",
         )}
       >
         <Tag size={12} />
