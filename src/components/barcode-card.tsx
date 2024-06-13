@@ -15,7 +15,7 @@ export function BarcodeCard({ barcode }: { barcode: Barcode }) {
     <div
       className={cn(
         "relative px-5 pb-10 pt-5 transition-colors",
-        isHighlighted && "bg-black/75",
+        isHighlighted && "bg-black",
       )}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
