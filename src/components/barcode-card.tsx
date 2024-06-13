@@ -92,7 +92,7 @@ function LabelPopover({
     <Popover
       open={open}
       onOpenChange={(open) => {
-        if (!open) {
+        if (open) {
           setLabel(barcode.label ?? "");
         }
 
