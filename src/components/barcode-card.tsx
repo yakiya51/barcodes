@@ -33,7 +33,7 @@ export function BarcodeCard({ barcode }: { barcode: Barcode }) {
       </div>
       <div className="text-center text-neutral-400">
         {barcode.label && (
-          <p className={cn("text-sm ", isHighlighted && "text-white")}>
+          <p className={cn("mb-0.5 text-sm ", isHighlighted && "text-white")}>
             {barcode.label}
           </p>
         )}
