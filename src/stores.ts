@@ -5,12 +5,14 @@ const code128Schema = z.object({
   kind: z.literal("code128"),
   id: z.string().min(1),
   value: z.string(),
+  label: z.string().optional(),
 });
 export type Code128 = z.infer<typeof code128Schema>;
 const qrCodeSchema = z.object({
   kind: z.literal("qrcode"),
   id: z.string().min(1),
   value: z.string(),
+  label: z.string().optional(),
 });
 export type QRCode = z.infer<typeof qrCodeSchema>;
 
@@ -26,6 +28,7 @@ export interface BarcodeState {
   barcodes: Barcode[];
   insert: (barcode: Barcode) => void;
   remove: (id: string) => void;
+  addLabel: (props: { id: string; label: string }) => void;
 
   // highlighted barcode AKA the barcode
   // that the user navigated to via. the
@@ -74,6 +77,24 @@ export const useBarcodeState = create<BarcodeState>()((set) => ({
       } else {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(barcodes));
       }
+
+      return {
+        barcodes,
+      };
+    }),
+  addLabel: ({ id, label }) =>
+    set((state) => {
+      const barcodes = state.barcodes.map((barcode) => {
+        if (barcode.id === id) {
+          return {
+            ...barcode,
+            label,
+          };
+        }
+        return barcode;
+      });
+
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(barcodes));
 
       return {
         barcodes,

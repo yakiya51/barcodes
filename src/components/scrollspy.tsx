@@ -13,13 +13,16 @@ export function BarcodeScrollSpy() {
   return (
     <ul className="w-full space-y-1">
       {barcodes.map((b) => (
-        <li className="w-fit max-w-full overflow-x-hidden truncate text-xs text-neutral-400 hover:text-black hover:underline">
+        <li
+          key={b.id}
+          className="w-fit max-w-full overflow-x-hidden truncate text-xs text-neutral-400 hover:text-black hover:underline"
+        >
           <a
             onClick={() => highlightBarcodeCardById(b.id)}
             href={`#${b.id}`}
             className="truncate"
           >
-            {b.value}
+            {b.label && b.label.length > 0 ? b.label : b.value}
           </a>
         </li>
       ))}

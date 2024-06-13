@@ -8,7 +8,6 @@ export function BarcodeCreationForm() {
   const [inputValue, setInputValue] = useState("");
   const [barcodeKind, setBarcodeKind] = useState<BarcodeKind>("code128");
 
-  console.log(barcodeKind, inputValue);
   const { insert } = useBarcodeState();
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
